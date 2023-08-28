@@ -17,7 +17,7 @@ namespace AstroServer
         double StarVelocity(double observedWavelength, double restWavelength);
 
         [OperationContract]
-        double StarDistance(double arsecondsAngle);
+        double StarDistance(double arcSecondsAngle);
 
         [OperationContract]
         double TemperatureInKelvin(double celcius);
