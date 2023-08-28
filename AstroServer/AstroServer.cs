@@ -32,7 +32,7 @@ namespace AstroServer
 
         public double EventHorizon(double a)
         {
-            return AstronomicalFormula.EventHorizon(a)
+            return AstronomicalFormula.EventHorizon(a);
         }
     }
 }
