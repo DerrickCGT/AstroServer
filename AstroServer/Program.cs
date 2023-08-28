@@ -16,7 +16,7 @@ namespace AstroServer
             {
                 string address = "net.pipe://localhost/astromath";
                 NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-                serviceHost.AddServiceEndpoint(typeof(AstroServer), binding, address);
+                serviceHost.AddServiceEndpoint(typeof(IAstroContract), binding, address);
 
                 serviceHost.Open();
 
