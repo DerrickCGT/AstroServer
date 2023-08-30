@@ -1,0 +1,16 @@
+using AstroMath;
+public class AstroServer : IAstroContract
+{
+   private AstroMath _astroMath;
+
+   public AstroServer() {}
+
+   public void CalculateCelsiusKelvin(float temperature)
+   {
+       _astroMath = AstroMath.Instance;
+
+       float kelvin = _astroMath.CelsiusToKelvin(temperature);
+
+       // Do something with the calculated Kelvin value
+
+   }
