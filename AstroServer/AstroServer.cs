@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using AstroMath;
 
+// Name: Derrick Choong
+// ID: 30066568
+// Date: 04/09/2023
+
 namespace AstroServer
 {
     // Define the service implementation class

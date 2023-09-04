@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 
+// Name: Derrick Choong
+// ID: 30066568
+// Date: 04/09/2023
+
 namespace AstroServer
 {
     // Define the service contract interface
