@@ -12,19 +12,27 @@ namespace AstroServer
         static void Main(string[] args)
         {
             // Use "using" to ensure proper disposal of the serviceHost and prevent resource leaks
+            using (ServiceHost serviceHost = new ServiceHost(typeof(AstroServer)))
+            {
+                // Define the address for the service using named pipes.
+                string address = "net.pipe://localhost/astromath";
 
-            ServiceHost serviceHost = new ServiceHost(typeof(AstroServer));
-            string address = "net.pipe://localhost/astromath";
-            NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            serviceHost.AddServiceEndpoint(typeof(IAstroContract), binding, address);
+                // Create a binding for the service using named pipes with no security.
+                NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
 
-            serviceHost.Open();
+                // Add a service endpoint to the service host, specifying the contract and binding.
+                serviceHost.AddServiceEndpoint(typeof(IAstroContract), binding, address);
 
-            Console.WriteLine("ServiceHost is running. Press <<Return>> to Exit");
-            Console.ReadLine();
+                // Open the service host to start listening for incoming requests.
+                serviceHost.Open();
 
-            serviceHost.Close();
-            
+                // Display a message indicating that the service host is running and keep the console opened.
+                Console.WriteLine("ServiceHost is running. Press <<Return>> to Exit");
+                Console.ReadLine();
+
+                // Close the service host to stop listening for incoming requests.
+                serviceHost.Close();
+            }
         }
     }
 }

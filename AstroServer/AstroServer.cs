@@ -15,25 +15,27 @@ namespace AstroServer
     {
         AstronomicalFormula formula = new AstronomicalFormula ();
         // Implementation of the formula under AstroMath.DLL 
-        // No instances required as the formula under DLL is static class
+        // If dll class is static, instance is not require to be created.
+        AstronomicalFormula astroFormula = new AstronomicalFormula();
+
         public double StarVelocity(double a, double b)
         {
-            return formula.StarVelocity(a, b);
+            return astroFormula.StarVelocity(a, b);
         }
 
         public double StarDistance(double a)
         {
-            return formula.StarDistance(a);
+            return astroFormula.StarDistance(a);
         }
 
         public double TemperatureInKelvin(double a)
         {
-            return formula.TemperatureInKelvin(a);
+            return astroFormula.TemperatureInKelvin(a);
         }
 
         public double EventHorizon(double a)
         {
-            return formula.EventHorizon(a);
+            return astroFormula.EventHorizon(a);
         }
     }
 }
