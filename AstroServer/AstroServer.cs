@@ -13,26 +13,27 @@ namespace AstroServer
     [ServiceBehavior (InstanceContextMode = InstanceContextMode.Single)]
     internal class AstroServer : IAstroContract
     {
+        AstronomicalFormula formula = new AstronomicalFormula ();
         // Implementation of the formula under AstroMath.DLL 
         // No instances required as the formula under DLL is static class
         public double StarVelocity(double a, double b)
         {
-            return AstronomicalFormula.StarVelocity(a, b);
+            return formula.StarVelocity(a, b);
         }
 
         public double StarDistance(double a)
         {
-            return AstronomicalFormula.StarDistance(a);
+            return formula.StarDistance(a);
         }
 
         public double TemperatureInKelvin(double a)
         {
-            return AstronomicalFormula.TemperatureInKelvin(a);
+            return formula.TemperatureInKelvin(a);
         }
 
         public double EventHorizon(double a)
         {
-            return AstronomicalFormula.EventHorizon(a);
+            return formula.EventHorizon(a);
         }
     }
 }

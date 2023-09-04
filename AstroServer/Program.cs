@@ -12,19 +12,19 @@ namespace AstroServer
         static void Main(string[] args)
         {
             // Use "using" to ensure proper disposal of the serviceHost and prevent resource leaks
-            using (ServiceHost serviceHost = new ServiceHost(typeof(AstroServer)))
-            {
-                string address = "net.pipe://localhost/astromath";
-                NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-                serviceHost.AddServiceEndpoint(typeof(IAstroContract), binding, address);
 
-                serviceHost.Open();
+            ServiceHost serviceHost = new ServiceHost(typeof(AstroServer));
+            string address = "net.pipe://localhost/astromath";
+            NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
+            serviceHost.AddServiceEndpoint(typeof(IAstroContract), binding, address);
 
-                Console.WriteLine("ServiceHost is running. Press <<Return>> to Exit");
-                Console.ReadLine();
+            serviceHost.Open();
 
-                serviceHost.Close();
-            }
+            Console.WriteLine("ServiceHost is running. Press <<Return>> to Exit");
+            Console.ReadLine();
+
+            serviceHost.Close();
+            
         }
     }
 }
